@@ -19,9 +19,10 @@ export class AppComponent {
 
   share(text: string) {
     console.info('thoughts to share: ', text)
+    console.log(typeof text)
     const data: any = {
       title: 'Share a thought',
-      text,
+      text: text
       //url: 'https://google.com'
     }
     navigator.share(data)

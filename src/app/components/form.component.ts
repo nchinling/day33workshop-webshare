@@ -58,7 +58,7 @@ export class FormComponent implements OnInit {
 
 
   processForm(){
-    const thoughts: string = this.thoughtsForm.value;
+    const thoughts: string = this.thoughtsForm.value['thoughts'];
     console.info('>>Processing form: ', thoughts);
     //store in browser db. 
     localStorage.setItem('thoughts', JSON.stringify(thoughts))
