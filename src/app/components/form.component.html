@@ -1,0 +1,55 @@
+<mat-toolbar color="primary" >
+
+    <span>Welcome to my App</span>
+</mat-toolbar>
+  
+
+<form [formGroup]="thoughtsForm" (submit)="processForm()" >
+    <table>
+
+        <tr><h3>My Thoughts</h3></tr>
+
+        <!-- the mat-form-field limits the width -->
+        <mat-form-field appearance="fill">
+        <!-- <tr> -->
+            <textarea matInput rows="10" class="custom-textarea" formControlName="thoughts"></textarea>
+            <mat-hint *ngIf="!canShare" class="error" align="end">
+                Web share is not supported
+            </mat-hint>
+
+        <!-- </tr> -->
+        </mat-form-field>
+
+            <tr>
+                <span *ngIf="invalidField('thoughts')">
+                    Please provide your thoughts
+                </span>
+            </tr>
+     
+
+        <tr>
+            <td>
+                <button type="button" mat-raised-button color="warn" (click)="clearForm()">Clear</button>
+                <button type="submit" mat-raised-button color="accent" [disabled]="invalidForm()">Share</button>
+            </td>
+        </tr>
+        <!-- </tr> -->
+    </table>
+
+    <tr>
+        <td></td>
+        <td>    
+            <ul>
+                <!-- friendsForm refers to the FormGroup name -->
+                <!-- <li>valid: {{thoughtsForm.valid}}</li>
+                <li>invalid: {{thoughtsForm.invalid}}</li>
+                <li>dirty: {{thoughtsForm.dirty}}</li>
+                <li>pristine: {{thoughtsForm.pristine}}</li> -->
+            </ul>
+        </td>
+    </tr>
+
+
+</form>
+
+
